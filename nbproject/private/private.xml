@@ -3,6 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group/>
-        <group name="NetBeansProjects"/>
+        <group name="NetBeansProjects">
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/Main.java</file>
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/modelo/CitasController.java</file>
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/modelo/CadastroTrabajadorController.java</file>
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/database/PacienteDAO.java</file>
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/database/CitaDAO.java</file>
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/modelo/PrincipalController.java</file>
+            <file>file:/C:/Users/pereiras-house/Documents/NetBeansProjects/DentalClin/src/dentalclinc/modelo/MedicosController.java</file>
+        </group>
     </open-files>
 </project-private>
