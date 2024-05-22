@@ -70,6 +70,7 @@ public class MedicosController implements Initializable {
     @FXML
     private TableColumn<Medico, String> colDireccionMedico;
     
+    // Lista observable para almacenar los médicos
     private ObservableList<Medico> medicos = FXCollections.observableArrayList();
 
     /**
@@ -78,10 +79,11 @@ public class MedicosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        cargarDatosMedicos();
+        cargarDatosMedicos();  // Cargar los datos de los médicos al inicio
         
-        choiceBoxSexMedico.getItems().addAll("Hombre", "Mujer");
+        choiceBoxSexMedico.getItems().addAll("Hombre", "Mujer"); // Agregar opciones al ChoiceBox
         
+        // Configuración de las columnas de la tabla
         colNifMedico.setCellValueFactory(new PropertyValueFactory<>("nif"));
         colDireccionMedico.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         colNombreMedico.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
@@ -115,6 +117,7 @@ public class MedicosController implements Initializable {
         }
     }
     
+    // Método para cargar los datos de los médicos desde la base de datos
     private void cargarDatosMedicos() {
         // Limpiar la lista de medicos
         medicos.clear();
@@ -126,6 +129,7 @@ public class MedicosController implements Initializable {
         TableMedico.refresh();
     }
 
+    // Método para guardar un nuevo médico
     @FXML
     private void btnSalvarMedico(ActionEvent event) {
         // Obtener la fecha del DatePicker
@@ -157,6 +161,7 @@ public class MedicosController implements Initializable {
         }
     }
 
+    // Método para editar un médico seleccionado
     @FXML
     private void btnEditarMedico(ActionEvent event) {
         // Obtener el paciente seleccionado en la tabla

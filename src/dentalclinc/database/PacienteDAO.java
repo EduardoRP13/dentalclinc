@@ -18,16 +18,20 @@ import java.util.List;
 /**
  *
  * @author pereiras-house
+ * Clase para gestionar las operaciones de base de datos relacionadas con los pacientes
  */
 public class PacienteDAO {
+    // Consultas SQL para operaciones CRUD
     private static final String INSERTAR_PACIENTE_SQL = "INSERT INTO pacientes (nombre, apellidos, nif, direccion, telefono, genero, alergia, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String ACTUALIZAR_PACIENTE_SQL = "UPDATE pacientes SET nombre=?, apellidos=?, direccion=?, telefono=?, genero=?, alergia=?, fecha_nacimiento=? WHERE nif=?";
     private static final String ELIMINAR_PACIENTE_SQL = "DELETE FROM pacientes WHERE nif=?";
     private static final String SELECCIONAR_PACIENTE_SQL = "SELECT * FROM pacientes WHERE nif=?";
     
+    // Método para insertar un nuevo paciente en la base de datos
     public void insertarPaciente(Paciente paciente) {
         try (Connection conn = new ConexionDB().getConnection();
              PreparedStatement statement = conn.prepareStatement(INSERTAR_PACIENTE_SQL)) {
+            // Establecer los valores de los parámetros en la consulta
             statement.setString(1, paciente.getNombre());
             statement.setString(2, paciente.getApellidos());
             statement.setString(3, paciente.getNif());
@@ -36,8 +40,9 @@ public class PacienteDAO {
             statement.setString(6, paciente.getGenero());
             statement.setString(7, paciente.getAlergia());
             statement.setString(8, paciente.getFechaNacimiento());
+            // Ejecutar la consulta
             statement.executeUpdate();
-            // Formatear la fecha de nacimiento al formato esperado por MySQL
+            // Formatear la fecha de nacimiento al formato esperado por mariadb
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate fechaNacimiento = LocalDate.parse(paciente.getFechaNacimiento(), formatter);
             statement.setString(8, fechaNacimiento.toString());
@@ -112,6 +117,7 @@ public class PacienteDAO {
         return paciente;
     }
 
+    // Método para obtener todos los pacientes de la base de datos
     public List<Paciente> obtenerTodosLosPacientes() {
         List<Paciente> listaPacientes = new ArrayList<>();
         try (Connection conn = new ConexionDB().getConnection();
@@ -119,6 +125,7 @@ public class PacienteDAO {
              ResultSet resultSet = statement.executeQuery("SELECT * FROM pacientes")) {
 
             while (resultSet.next()) {
+                // Obtener los datos de cada paciente
                 String nombre = resultSet.getString("nombre");
                 String apellidos = resultSet.getString("apellidos");
                 String nif = resultSet.getString("nif");
@@ -128,6 +135,7 @@ public class PacienteDAO {
                 String alergia = resultSet.getString("alergia");
                 String fechaNacimiento = resultSet.getString("fecha_nacimiento");
 
+                // Crear un objeto Paciente con los datos obtenidos y agregarlo a la lista
                 Paciente paciente = new Paciente(
                         nombre,
                         apellidos,

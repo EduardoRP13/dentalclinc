@@ -65,15 +65,17 @@ public class CitasController implements Initializable {
         colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         colProcedimiento.setCellValueFactory(new PropertyValueFactory<>("procedimiento"));
 
-        cargarCitas();
+        cargarCitas(); // Cargar las citas al iniciar la ventana
     }
     
+    // Método para cargar las citas desde la base de datos
     private void cargarCitas() {
         CitaDAO citaDAO = new CitaDAO();
         citasList.setAll(citaDAO.obtenerTodasLasCitas());
         TableCitas.setItems(citasList);
     }
-
+    
+    // Evento para volver a la pantalla principal   
     @FXML
     private void btnVolver(ActionEvent event) {
         try {
@@ -96,6 +98,7 @@ public class CitasController implements Initializable {
         }
     }
 
+    // Evento para eliminar una cita seleccionada
     @FXML
     private void EliminarCitaPrevia(ActionEvent event) {
         Cita citaSeleccionada = TableCitas.getSelectionModel().getSelectedItem();
@@ -125,8 +128,10 @@ public class CitasController implements Initializable {
         }
     }
 
+    // Evento para editar una cita seleccionada (a implementar)
     @FXML
     private void EditarCitaPrevia(ActionEvent event) {
+        // tengo que implementar esta funcion
     }
     
 }

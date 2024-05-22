@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DentalClinc.jar" size="1174260" download="eager" />
+    <jar href="DentalClinc.jar" size="1174250" download="eager" />
     <jar href="lib\mysql-connector-j-8.3.0.jar" size="2495536" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="dentalclinc.Main"  name="DentalClinc" />

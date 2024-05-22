@@ -52,10 +52,11 @@ public class ProcedimientoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cargarPacientes();
-        cargarMedicos();
+        cargarPacientes(); // Cargar la lista de pacientes
+        cargarMedicos(); // Cargar la lista de médicos
     }    
 
+    // Método para cargar la lista de pacientes en el ComboBox
     private void cargarPacientes() {
         PacienteDAO pacienteDAO = new PacienteDAO();
         List<Paciente> pacientes = pacienteDAO.obtenerTodosLosPacientes();
@@ -66,6 +67,7 @@ public class ProcedimientoController implements Initializable {
         comboNifPaciente.setItems(nifList);
     }
     
+    // Método para cargar la lista de médicos en el ComboBox
     private void cargarMedicos() {
         MedicoDAO medicoDAO = new MedicoDAO();
         List<Medico> medicos = medicoDAO.obtenerTodosLosMedicos();
@@ -76,6 +78,7 @@ public class ProcedimientoController implements Initializable {
         comboMedico.setItems(medicoList);
     }
     
+    // Método para manejar el evento de volver
     @FXML
     private void btnVolver(ActionEvent event) {
         try {
@@ -98,6 +101,7 @@ public class ProcedimientoController implements Initializable {
         }
     }
 
+    // Método para guardar el procedimiento dental
     @FXML
     private void guardarProcedimientoDental(ActionEvent event) {
         String nifPaciente = comboNifPaciente.getValue();
@@ -108,16 +112,19 @@ public class ProcedimientoController implements Initializable {
         String procedimiento = txtProcedimiento.getText();
 
         if (nifPaciente == null || medico == null || dientes.isEmpty() || hora.isEmpty() || fecha == null || procedimiento.isEmpty()) {
+            // Mostrar un mensaje de error si algún campo está vacío
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error al guardar");
             alert.setHeaderText(null);
             alert.setContentText("Todos los campos son obligatorios.");
             alert.showAndWait();
         } else {
+            // Crear objeto Cita con los datos ingresados
             Cita cita = new Cita(nifPaciente, medico, dientes, hora, fecha.toString(), procedimiento);
             CitaDAO citaDAO = new CitaDAO();
             citaDAO.insertarCita(cita);
 
+            // Mostrar mensaje de confirmación
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cita guardada");
             alert.setHeaderText(null);
