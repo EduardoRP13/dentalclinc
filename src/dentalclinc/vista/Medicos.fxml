@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dentalclinc.modelo.MedicosController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="570.0" prefWidth="800.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="138.0" fitWidth="135.0" layoutX="25.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="408.19999999999993" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="640.2" AnchorPane.topAnchor="27.0">
+               <image>
+                  <Image url="@../../vista/images/logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="228.8" layoutY="244.0" mnemonicParsing="false" onAction="#btnSalvarMedico" prefHeight="26.0" prefWidth="80.0" text="Salvar" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="491.0" AnchorPane.topAnchor="244.0" />
+            <Button layoutX="316.8" layoutY="244.0" mnemonicParsing="false" onAction="#btnEditarMedico" prefHeight="26.0" prefWidth="88.0" text="Editar" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="317.0" AnchorPane.rightAnchor="395.0" AnchorPane.topAnchor="244.0" />
+            <Button layoutX="414.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnConfimarEdicionMedico" prefHeight="26.0" prefWidth="135.0" text="Confirmar Edicion" AnchorPane.bottomAnchor="300.8" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="251.5999999999999" AnchorPane.topAnchor="244.0" />
+            <Button layoutX="564.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnEliminarMedico" prefHeight="26.0" prefWidth="96.0" text="Eliminar" AnchorPane.bottomAnchor="300.8" AnchorPane.leftAnchor="564.0" AnchorPane.rightAnchor="140.79999999999995" AnchorPane.topAnchor="244.0" />
+            <Label layoutX="240.0" layoutY="72.0" text="NIF:" />
+            <TextField fx:id="txtNifMedico" layoutX="238.0" layoutY="90.0" AnchorPane.bottomAnchor="454.4" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="90.0" />
+            <Label layoutX="237.0" layoutY="115.0" text="Direccion:" />
+            <TextField fx:id="txtDireccionMedico" layoutX="238.0" layoutY="137.0" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="136.8" />
+            <Label layoutX="405.0" layoutY="71.0" text="Nombre:" />
+            <TextField fx:id="txtNombreMedico" layoutX="405.0" layoutY="90.0" AnchorPane.bottomAnchor="454.4" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="245.6" AnchorPane.topAnchor="90.4" />
+            <Label layoutX="410.0" layoutY="115.0" text="Apellidos:" />
+            <TextField fx:id="txtApellidosMedico" layoutX="406.0" layoutY="137.0" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="404.8" AnchorPane.rightAnchor="245.6" AnchorPane.topAnchor="136.8" />
+            <Label layoutX="238.0" layoutY="170.0" text="Teléfono:" />
+            <TextField fx:id="txtTelefonoMedico" layoutX="239.0" layoutY="192.0" AnchorPane.bottomAnchor="352.79999999999995" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="411.19999999999993" AnchorPane.topAnchor="192.0" />
+            <Label layoutX="570.0" layoutY="71.0" text="Género:" />
+            <ChoiceBox fx:id="choiceBoxSexMedico" layoutX="570.0" layoutY="90.0" prefHeight="25.0" prefWidth="102.0" AnchorPane.bottomAnchor="454.4" AnchorPane.leftAnchor="570.0" AnchorPane.rightAnchor="127.20000000000002" AnchorPane.topAnchor="90.0" />
+            <Label layoutX="402.0" layoutY="170.0" text="Fecha de Nascimiento:" />
+            <Label layoutX="371.0" layoutY="15.0" text="Médicos Dentistas">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="TableMedico" layoutX="199.0" layoutY="289.0" prefHeight="204.0" prefWidth="528.0">
+               <columns>
+                  <TableColumn fx:id="colNombreMedico" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="colNifMedico" prefWidth="75.0" text="NIF" />
+                  <TableColumn fx:id="colApellidosMedico" prefWidth="75.0" text="Apellidos" />
+                  <TableColumn fx:id="colFechaNascMedico" prefWidth="114.4000244140625" text="Fecha de nascimiento" />
+                  <TableColumn fx:id="colGeneroMedico" prefWidth="78.4000244140625" text="Género" />
+                  <TableColumn fx:id="colTelMedico" prefWidth="59.99993896484375" text="Teléfono" />
+                  <TableColumn fx:id="colDireccionMedico" prefWidth="75.0" text="Direccion" />
+               </columns>
+            </TableView>
+            <Button layoutX="67.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnVolver" prefHeight="26.0" prefWidth="66.0" text="Volver" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="667.0" AnchorPane.topAnchor="244.0" />
+            <DatePicker fx:id="txtFechaNascMedico" layoutX="405.0" layoutY="192.0" prefHeight="26.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
